@@ -6,13 +6,14 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
+import raisetech.StudentManagement.Repository.StudentRepository;
+import raisetech.StudentManagement.deta.Course;
+import raisetech.StudentManagement.deta.Student;
 
 @SpringBootApplication
-@RestController
+
 public class StudentManagementApplication {
 
-  @Autowired
-  private StudentRepository repository;
 
 
   public static void main(String[] args) {
@@ -20,16 +21,6 @@ public class StudentManagementApplication {
     SpringApplication.run(StudentManagementApplication.class, args);
   }
 
-  @GetMapping("/students")
-  public List<Student> getStudentList() {
-    return repository.search();
-  }
 
-  @GetMapping("/studentsCourses")
-  public List<Course> getCourseList() {
-    return repository.searchbycourse();
-
-
-  }
 }
 
